@@ -1,0 +1,40 @@
+# datos del estudiante lista
+nombre = input("Ingrese el nombre del estudiante: ")
+codigo = input("Ingrese el Id del estudiante: ")
+fecha = input("Ingrese la fecha de nacimiento: ")
+
+datos_estudiante = (nombre, id, fecha)
+
+# lista de notas
+notas = []
+
+cantidad_notas = int(input("¿Cuántas notas desea ingresar?: "))
+
+for i in range(cantidad_notas):
+    nota = float(input("Ingrese la nota: "))
+    notas.append(nota)
+
+# conjuno parte
+materias = set()
+
+cantidad_materias = int(input("¿Cuántas materias desea ingresar?: "))
+
+for i in range(cantidad_materias):
+    materia = input("Ingrese una materia: ")
+    materias.add(materia)
+
+
+estudiante = {
+    "datos": datos_estudiante,
+    "notas": notas,
+    "materias": materias
+}
+
+print("\n--- INFORMACIÓN DEL ESTUDIANTE ---")
+
+print("Estudiante:", estudiante["datos"][0],
+      "| Código:", estudiante["datos"][1],
+      "| Nacido:", estudiante["datos"][2])
+
+print("Notas registradas:", estudiante["notas"])
+print("Materias evaluadas:", estudiante["materias"])
