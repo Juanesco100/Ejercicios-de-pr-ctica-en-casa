@@ -1,0 +1,45 @@
+comprador = input("Ingrese su nombre: ")
+continuar = "si"
+
+ventas = []
+ventas_productos = []
+productos = {}
+
+numero_ventas = int(input("Cuantos pedidos desea hacer el dia de hoy: "))
+
+for i in range(numero_ventas):
+
+    print("\nventa", i + 1)
+
+    producto = input("Nombre del producto: ")
+    precio = int(input("Precio unitario: "))
+    cantidad = int(input("Cantidad vendida: "))
+
+    total_venta = precio * cantidad
+    ventas.append(total_venta)
+
+    ventas_productos.append(producto)
+
+    if producto in productos:
+        productos[producto] += cantidad
+    else:
+        productos[producto] = cantidad
+
+    continuar = input("Desea agregar otro producto (si/no): ")
+
+    if continuar == "no":
+        break
+
+
+print("--------------Resumen venta----------")
+
+print("Comprador:", comprador)
+
+print("\nProductos vendidos:")
+
+for producto, cantidad in productos.items():
+    print(producto, "- cantidad comprada:", cantidad)
+
+venta_total = sum(ventas)
+
+print("\nTotal vendido al cliente fue:", venta_total)
