@@ -1,0 +1,60 @@
+# Función para solicitar el nombre del producto
+def pedir_nombre():
+    nombre = input("Ingrese el nombre del producto: ")
+    return nombre
+
+
+# Función para solicitar el precio del producto
+def pedir_precio():
+    for intento in range(5):
+        try:
+            precio = float(input("Ingrese el precio del producto: "))
+            return precio
+        except ValueError:
+            print("Error: debe ingresar un número válido para el precio.")
+    return 0
+
+
+# Función para solicitar la cantidad del producto
+def pedir_cantidad():
+    for intento in range(5):
+        try:
+            cantidad = int(input("Ingrese la cantidad del producto: "))
+            return cantidad
+        except ValueError:
+            print("Error: debe ingresar un número entero válido para la cantidad.")
+    return 0
+
+
+# Función para calcular el costo total
+def calcular_total(precio, cantidad):
+    total = precio * cantidad
+    return total
+
+
+# Función para crear el diccionario del producto
+def crear_producto(nombre, precio, cantidad, total):
+
+    producto = {
+        "nombre": nombre,
+        "precio": precio,
+        "cantidad": cantidad,
+        "total": total
+    }
+
+    return producto
+
+
+# Función para mostrar los productos registrados
+def mostrar_productos(lista_productos):
+
+    print("\nResumen del inventario:")
+
+    for producto in lista_productos:
+
+        print(
+            "Producto:", producto["nombre"],
+            "| Precio:", producto["precio"],
+            "| Cantidad:", producto["cantidad"],
+            "| Total:", producto["total"]
+        )
