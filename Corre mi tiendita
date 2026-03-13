@@ -1,0 +1,30 @@
+# Importar funciones del archivo inventario
+from inventario import pedir_nombre, pedir_precio, pedir_cantidad, calcular_total, crear_producto, mostrar_productos
+
+
+# Lista para almacenar los productos
+inventario = []
+
+
+# Preguntar cuántos productos se van a registrar
+numero_productos = int(input("¿Cuántos productos desea registrar? "))
+
+
+# Ciclo para registrar productos
+for i in range(numero_productos):
+
+    print("\nRegistro del producto", i + 1)
+
+    nombre = pedir_nombre()
+    precio = pedir_precio()
+    cantidad = pedir_cantidad()
+
+    total = calcular_total(precio, cantidad)
+
+    producto = crear_producto(nombre, precio, cantidad, total)
+
+    inventario.append(producto)
+
+
+# Mostrar todos los productos registrados
+mostrar_productos(inventario)
